@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if messages %}
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+{% endif %}
+<table border="1">
+    <tr>
+        <th>EMP_ID</th>
+        <th>EMP_NAME</th>
+        <th>EMP_EMAIL</th>
+        <th>EMP_PIC</th>
+        <th colspan="2">OPERATION</th>
+    </tr>
+    {% for item in emps %}
+        <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.employee_name }}</td>
+        <td>{{ item.employee_email }}</td>
+        <td><img src="{{ item.employee_pic.url }}" alt="image" height="20",width="30"></td>
+        <td><a href="{% url 'delete' item.id %}">DELETE</a> </td>
+        <td><a href="{% url 'update' item.id %}">UPDATE</a> </td>
+        </tr>
+    {% endfor %}
+</table><br><br>
+<a href="{% url 'home' %}"><button>ADD</button></a>
+</body>
+</html>

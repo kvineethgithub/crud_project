@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li {
+                      list-style-type: none;
+                                        }
+    </style>
+</head>
+<body>
+
+<form method="POST" action="{% url 'updated' emps.id %}" id="new_user" enctype="multipart/form-data">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+<script type="text/javascript" src="js/script.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+{#<script type="text/javascript">#}
+{#    $(document).on('submit','#new_user',function (e) {#}
+{#        e.preventDefault();#}
+{#        var form_data = new FormData();#}
+{#        employee_name=$('#id_employee_name').val();#}
+{#        employee_email=$('#id_employee_email').val();#}
+{#        csrfmiddlewaretoken=$('input[name=csrfmiddlewaretoken]').val();#}
+{#        var file_data = $("#id_employee_pic").prop("files")[0];#}
+{#        form_data.append("file", file_data);#}
+{#        form_data.append("employee_name", employee_name);#}
+{#        form_data.append("employee_email", employee_email);#}
+{#        form_data.append("csrfmiddlewaretoken", csrfmiddlewaretoken);#}
+{#        $.ajax({#}
+{#            type:'POST',#}
+{#            url:'/create/',#}
+{#            contentType:false,#}
+{#            cache:false,#}
+{#            processData:false,#}
+{#            data:form_data,#}
+{#            success:function (){#}
+{#                alert("User Created Successfully");#}
+{#            }#}
+{#        });#}
+{##}
+{#    });#}
+{#</script>#}
+
+</html>
